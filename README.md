@@ -1,40 +1,42 @@
 # littlelink-template
 
-Шаблон страницы-визитки: в репозитории только конфиги, сборку делает
-[`anotherdoesnm/action-littlelink`](https://github.com/anotherdoesnm/action-littlelink).
+A link-in-bio page where this repository holds **only configuration**. The build is
+done by [`anotherdoesnm/action-littlelink`](https://github.com/anotherdoesnm/action-littlelink),
+which pulls the upstream LittleLink styles at a pinned commit and renders one
+self-contained HTML file.
 
-## Быстрый старт
+## Quick start
 
-1. **Use this template** → создайте свой репозиторий.
-2. В `site.json` — имя, подпись, подвал. В `links.json` — ссылки.
-3. Положите `assets/avatar.png` (квадратную картинку).
+1. **Use this template** to create your own repository.
+2. Edit `site.json` (name, subtitle, footer) and `links.json` (the links).
+3. Drop a square `assets/avatar.png`.
 4. Settings → Pages → Source: **GitHub Actions**.
-5. Пуш в `main` — через минуту страница на `https://<user>.github.io/<repo>/`.
+5. Push to `main` — a minute later the page is at `https://<user>.github.io/<repo>/`.
 
-## Как добавить свою иконку
+## Adding your own icon
 
 ```
-assets/icons/myservice.svg     ← любой SVG, viewBox желателен 0 0 24 24
+assets/icons/myservice.svg     ← any SVG; a 0 0 24 24 viewBox works best
 ```
 
 ```json
-{ "label": "Мой сервис", "url": "https://example.org",
+{ "label": "My service", "url": "https://example.org",
   "brand": "myservice", "icon": "myservice", "color": "#123456" }
 ```
 
-`icon` — имя файла без `.svg`. Если для `brand` нет правила в апстримных
-`brands.css` и нет своего в `local.css` действия, сборщик возьмёт `color` из
-конфига и сам подберёт цвет текста по контрасту. Ровно так в примере выше сделан
-«Мой сервис».
+`icon` is the file name without `.svg`. If `brand` has no rule in the upstream
+`brands.css` files and none in the action's `local.css`, the renderer takes `color`
+from the config and derives a readable text colour. That is exactly how the
+"My service" entry in `links.json` works.
 
-Признак того, что иконка не подхватилась: в логе сборки `icon "…" missing — using a
-letter badge`, а в HTML вместо картинки буква в кружке.
+If an icon was not picked up, the build log says `icon "…" missing — using a letter
+badge` and the page shows a letter in a circle instead of the image.
 
-## Что можно трогать, а что нет
+## What you may change
 
-| файл | можно |
+| file | editable |
 |---|---|
-| `site.json`, `links.json` | да, это и есть содержимое |
-| `assets/icons/*.svg`, `assets/avatar.png` | да |
-| `.github/workflows/build.yml` | обычно не нужно |
-| вёрстка и цвета кнопок | живут в action-репозитории, не здесь |
+| `site.json`, `links.json` | yes — this is the content |
+| `assets/icons/*.svg`, `assets/avatar.png` | yes |
+| `.github/workflows/build.yml` | usually not |
+| layout and button styling | lives in the action repository, not here |
