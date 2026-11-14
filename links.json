@@ -1,0 +1,6 @@
+[
+  { "label": "GitHub",   "url": "https://github.com/yourname", "brand": "github", "icon": "github" },
+  { "label": "Mastodon", "url": "https://example.social/@you", "brand": "mastodon", "icon": "mastodon" },
+
+  { "label": "Мой сервис", "url": "https://example.org", "brand": "myservice", "icon": "myservice", "color": "#123456" }
+]

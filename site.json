@@ -1,0 +1,10 @@
+{
+  "title": "Ваше Имя",
+  "subtitle": "@you@example.social",
+  "avatar": "assets/avatar.png",
+  "footer": "Сделано на LittleLink",
+  "footerUrl": "https://github.com/anotherdoesnm/littlelink-template",
+  "footerText": "шаблон",
+  "lang": "ru",
+  "theme": {}
+}
